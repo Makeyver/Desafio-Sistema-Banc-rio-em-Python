@@ -6,30 +6,34 @@ menu = """
 [2] Extrato
 [3] Sair
 
+Bem Vindo ao MakeyverCapital Bank, o Banco da sua Vida!
+Por Favor, Digite a sua Opção:
+
 => """
 
 saldo = 0
 limite = 500
 extrato = ""
 numero_saques = 0
-LIMITE-SAQUES = 3
+LIMITE_SAQUES = 3
 
 while True:
 
-     opcao = input(menu)
+    opcao = input(menu)
 
-     if opcao == "0":
-        valor = float(input("Informe o valor que voce deseja depositar: ":))
+    if opcao == "0":
+        valor = float(input("Informe o valor que voce deseja depositar: "))
+
 
         if valor > 0:
-        saldo == valor
+            saldo == valor
 
-        extrato == f"Depósito: R$ {valor:.2f}/n"
+            extrato == f"Depósito: R$ {valor:.2f}/n"
 
         else:
             print("Operação falhou! O valor informado é inválido. Tente novamente!")
     
-    elif opção == "1":
+    elif opcao == "1":
         valor = float(input("Informe o valor que deseja sacar: "))
 
         excedeu_saldo = valor > saldo
@@ -38,28 +42,31 @@ while True:
 
         excedeu_saques = numero_saques >= LIMITE_SAQUES
 
-        if excedeu-saldo:
+        if excedeu_saldo:
             print("Operação falhou! Voce não tem saldo suficiente.")
 
-        elif excedeu-limite:
+        elif excedeu_limite:
             print("Operação falhou! O valor do saque excede o limite.")
 
-        elif excedeu-saques:
+        elif excedeu_saques:
             print("Operação falhou! Você atingiu o limite de saque diário. Tente amanha!")
 
         elif valor > 0:
             saldo -= valor
             extrato += f"Saque: R$ {valor:.2f}\n"
-            numero-saques += 1
+            numero_saques += 1
+        else:
+            print("Operação falhou! O valor informado é inválido.")
     
     elif opcao == "2":
         print("\n**************** EXTRATO ****************")
-        print(Não foram realizadas movimentações neste dia." if not extrato else extrato)
+        print("Não foram realizadas movimentações neste dia." if not extrato else extrato)
         print(f"\nSaldo: R$ {saldo:.2f}")
         print("*****************************************")
 
     elif opcao == "3":
         break
-
+        print("Nós da MakeyverCapital Bank Agradecemos pela preferencia!")
     else:
-    print("Operação inválida, por favor selecione novamente a operação desejada.")
+        
+        print("Operação inválida, por favor selecione novamente a operação desejada.")
